@@ -1,0 +1,30 @@
+
+Users have many books
+Books have
+  Author(s)
+  Genre(s)
+  Read?
+  Times Read
+  Owned?
+  can have Series
+
+Authors have
+  Books
+  Series
+  Genres
+  -We should be able to navigate to Author index pages to see if there are books in the DB that we haven't read as a discovery tool
+
+Genres have
+  Books
+  -This should also be a page
+
+Series have
+  Books
+  -Also a page
+
+
+Gems
+Migrations
+MVC
+Routes
+Set up config

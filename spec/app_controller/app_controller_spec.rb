@@ -254,7 +254,7 @@ describe ApplicationController do
         fill_in(:password, :with => "ipsum")
         click_button 'submit'
 
-        visit '/bookss/new'
+        visit '/books/new'
 
         fill_in(:title, :with => "")
         fill_in(:author, :with => "")
@@ -276,30 +276,31 @@ describe ApplicationController do
 
   describe 'show action' do
     context 'logged in' do
-      it 'displays a single tweet' do
+      it 'displays a single book' do
 
-        user = User.create(:username => "becky567", :email => "starz@aol.com", :password => "kittens")
-        tweet = Tweet.create(:content => "i am a boss at tweeting", :user_id => user.id)
+        user = User.create(:username => "lorem", :email => "loremipsum@theinternet.com", :password => "ipsum")
+        book = Book.create(:title => "Harry Potter and the Sorcerer's Stone", :author => "JK Rowling", :genre => "Fantasy", :user_id => user.id)
 
         visit '/login'
 
-        fill_in(:username, :with => "becky567")
-        fill_in(:password, :with => "kittens")
+        fill_in(:username, :with => "lorem")
+        fill_in(:password, :with => "ipsum")
         click_button 'submit'
 
-        visit "/tweets/#{tweet.id}"
+        visit "/books/#{book.id}"
         expect(page.status_code).to eq(200)
-        expect(page.body).to include("Delete Tweet")
-        expect(page.body).to include(tweet.content)
-        expect(page.body).to include("Edit Tweet")
+#        expect(page.body).to include("Delete Book")
+        expect(page.body).to include(book.title)
+        expect(page.body).to include(book.author)
+#        expect(page.body).to include("Edit Book")
       end
     end
 
     context 'logged out' do
-      it 'does not let a user view a tweet' do
-        user = User.create(:username => "becky567", :email => "starz@aol.com", :password => "kittens")
-        tweet = Tweet.create(:content => "i am a boss at tweeting", :user_id => user.id)
-        get "/tweets/#{tweet.id}"
+      it 'does not let a user view a book' do
+        user = User.create(:username => "lorem", :email => "loremipsum@theinternet.com", :password => "ipsum")
+        book = Book.create(:title => "Harry Potter and the Sorcerer's Stone", :author => "JK Rowling", :genre => "Fantasy", :user_id => user.id)
+        get "/books/#{book.id}"
         expect(last_response.location).to include("/login")
       end
     end

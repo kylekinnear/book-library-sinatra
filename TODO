@@ -1,7 +1,7 @@
 If books belong to users, how do we handle multiple users having the same book??
   Is this just a has_many?
 
-line 277 show action spec
+line 309 edit action spec
 
 Users have many books
 Books have

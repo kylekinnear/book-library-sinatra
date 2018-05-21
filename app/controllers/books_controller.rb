@@ -56,7 +56,16 @@ class BooksController < ApplicationController
   end
 
   get '/my-library/:id/edit' do
-    #write this
+    if logged_in?
+      @book = Book.find_by_id(params[:id])
+      if @book && @book.user_id == current_user
+        erb :'books/edit_book'
+      else
+        redirect to '/my-library'
+      end
+    else
+      redirect to '/'
+    end
   end
 
   delete '/my-library/:id/delete' do

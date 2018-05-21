@@ -5,7 +5,7 @@ It lists and links to your books
 <h2>Welcome, <%= current_user.username %></h2>
 <% @books.each do |book| %>
   <div style="border:2px solid black">
-    <a href="/books/<%=book.id%>"><h4><%= book.title %></h4></a>
+    <a href="/my-library/<%=book.id%>"><h4><%= book.title %></h4></a>
     <p><%= book.author%></p>
   </div>
 <%end%>

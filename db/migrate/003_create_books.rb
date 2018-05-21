@@ -2,7 +2,7 @@ class CreateBooks < ActiveRecord::Migration[5.1]
   def change
     create_table :books do |t|
       t.string :title
-      t.string :author #should we be using author_id?
+      t.integer :author_id
       t.string :tags
       t.boolean :read?
       t.integer :times_read

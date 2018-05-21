@@ -25,11 +25,6 @@ Tags-
   Can belong to many Books
   -This should also be a page
 
-Series have
-  Books
-  -Also a page
-
-Do we want to create multiple instances of the same book to make more friendly to the individual user?
 
 Specs
 Gems

@@ -45,7 +45,7 @@ class BooksController < ApplicationController
   get '/my-library/:id' do
     if logged_in?
       @book = Book.find_by_id(params[:id])
-      if @book && @book.user_id == current_user
+      if @book && @book.user_id == current_user.id
         erb :'books/show_book'
       else
         redirect to '/my-library'
@@ -62,7 +62,7 @@ class BooksController < ApplicationController
   get '/my-library/:id/edit' do
     if logged_in?
       @book = Book.find_by_id(params[:id])
-      if @book && @book.user_id == current_user
+      if @book && @book.user_id == current_user.id
         erb :'books/edit_book'
       else
         redirect to '/my-library'
@@ -73,7 +73,15 @@ class BooksController < ApplicationController
   end
 
   delete '/my-library/:id/delete' do
-    #i wonder what this should do
+    if logged_in?
+      @book = Book.find_by_id(params[:id])
+      if @book && @book.user_id == current_user.id
+        @book.delete
+      end
+      redirect to '/my-library'
+    else
+      redirect to '/'
+    end
   end
 
 

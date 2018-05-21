@@ -15,6 +15,7 @@ class BooksController < ApplicationController
     if logged_in?
       if params[:title] != "" && params[:author] != ""
         @book = current_user.books.new(title: params[:title], author: params[:author]) #is this correct?
+        #@book.user_id = session[:user_id] - do we need this?
         if params[:read_it] == 1
           @book.read? = 1
           @book.times_read = params[:times_read]

@@ -2,14 +2,13 @@ Users have many books
 Books have
   Title
   Author(s)
-  Genre(s)
   Read?
   Times Read
   Owned?
   can have Series
   Location (where you have it)
   Comments?
-  Tags?
+  Can have many Tags
     Do we want to be able to import goodreads url/summary/ratings?
       Is this a button that reloads a new view with the fields added?
       Flag book as goodreads_imported to determine which view loads subsequently?
@@ -23,8 +22,8 @@ Authors have
       -Checking all books seems pretty computing intensive
       -Is this even an important function?
 
-Genres have
-  Books
+Tags-
+  Can belong to many Books
   -This should also be a page
 
 Series have

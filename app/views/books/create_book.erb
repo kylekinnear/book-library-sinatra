@@ -1,12 +1,13 @@
-This is where we create a book
-User must enter a title and an author
-  We must slug the author and find the correct author id
-    Do we want to store what the user gives so we can give it back? What is the author name report hierarchy?
-
-User may enter tags - what is the best way to do multiple tags? Comma separate, make an array, and pull each out?
-User may check the read? box. If not, will default to unread
-User may tell us how many times the book has been read. If read? is checked, default 1, else default 0
-User may tell us if they own the book. Default no
-User may tell us where the book is
-User will have a field to enter notes/comments on the book
-User will be able to check a box to populate from goodreads, default no
+<h2>Add a book to your collection:</h2>
+<p><i>* marks a required field.</i></p>
+<form action="/my-library" method="post">
+  <h4>Title* <input type="text" name="title"></h4>
+  <p><b>Author* </b><input type="text" name="author"></p>
+  <p>I've read this book <input type="checkbox" name="read_it" checked> <input type="number" name="times_read" value="1" style="width: 40px"> times</p>
+  <p>I own this book <input type="checkbox" name="own_it"></p>
+  <p>This book is stored <input type="text" name="location"></p>
+  <p>Comments on this book</p>
+  <textarea name="comments" rows="5" cols="60"></textarea>
+  <p>Would you like to get Goodreads info on this book? <input type="checkbox" name="get_goodreads?"></p>
+  <input type="submit" value="Add this book">
+</form>

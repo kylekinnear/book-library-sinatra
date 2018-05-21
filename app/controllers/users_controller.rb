@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     if logged_in?
       erb :'/users/library'
     else
-      redirect to '/login'
+      redirect to '/'
     end
   end
 

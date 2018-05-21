@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
   get '/my-library' do
     if logged_in?
+      @books = Book.all.find_all{|book| book.user_id == session[:user_id]} #are we doing this correctly?
       erb :'/users/library'
     else
       redirect to '/'

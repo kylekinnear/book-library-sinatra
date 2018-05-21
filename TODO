@@ -19,6 +19,9 @@ Authors have
   Series
   Genres
   -We should be able to navigate to Author index pages to see if there are books in the DB that we haven't read as a discovery tool
+    -When listing, do we separate out logged_in user books from not? Have no link to non user books, but check for duplicates
+      -Checking all books seems pretty computing intensive
+      -Is this even an important function?
 
 Genres have
   Books

@@ -21,4 +21,12 @@ class UsersController < ApplicationController
     end
   end
 
+  get '/my-library' do
+    if logged_in?
+      erb :'/users/library'
+    else
+      redirect to '/login'
+    end
+  end
+
 end

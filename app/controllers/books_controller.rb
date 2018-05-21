@@ -11,6 +11,7 @@ class BooksController < ApplicationController
   end
 
   #we still need to add tags to the following:
+  #this also needs to instantiate authors and tags that do not already exist
   post '/my-library' do
     if logged_in?
       if params[:title] != "" && params[:author] != ""

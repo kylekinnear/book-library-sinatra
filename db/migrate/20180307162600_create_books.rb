@@ -10,6 +10,7 @@ class CreateBooks < ActiveRecord::Migration[5.1]
       t.string :location
       t.string :series
       t.string :comments
+      t.integer :user_id
       t.boolean :goodreads_flag
       t.string :goodreads_url
       t.integer :goodreads_rates

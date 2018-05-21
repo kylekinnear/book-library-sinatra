@@ -12,8 +12,7 @@ class CreateBooks < ActiveRecord::Migration[5.1]
       t.integer :user_id
       t.boolean :goodreads_flag
       t.string :goodreads_url
-      t.integer :goodreads_rates
-      t.float :goodreads_rating
+      t.string :goodreads_rating
     end
   end
 end

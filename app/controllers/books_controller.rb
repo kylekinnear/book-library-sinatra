@@ -6,6 +6,6 @@ class BooksController < ApplicationController
     if logged_in?
       erb :'books/create_book'
     else
-      redirect to '/login'
+      redirect to '/'
     end
   end

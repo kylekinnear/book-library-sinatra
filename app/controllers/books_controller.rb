@@ -49,7 +49,17 @@ class BooksController < ApplicationController
     end
   end
 
+  patch '/my-library/:id' do
+    #yay editing
+  end
 
+  get '/my-library/:id/edit' do
+    #write this
+  end
+
+  delete '/my-library/:id/delete' do
+    #i wonder what this should do
+  end
 
 
 end

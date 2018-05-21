@@ -37,4 +37,14 @@ class UsersController < ApplicationController
     end
   end
 
+  post '/login' do
+    user = User.find_by(email: params[:email])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect to '/my-library'
+    else
+      redirect to '/signup'
+    end
+  end
+
 end

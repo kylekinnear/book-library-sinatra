@@ -8,7 +8,6 @@ class CreateBooks < ActiveRecord::Migration[5.1]
       t.integer :times_read
       t.boolean :owned?
       t.string :location
-      t.string :series
       t.string :comments
       t.integer :user_id
       t.boolean :goodreads_flag

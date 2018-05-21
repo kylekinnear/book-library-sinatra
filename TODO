@@ -1,8 +1,3 @@
-If books belong to users, how do we handle multiple users having the same book??
-  Is this just a has_many?
-
-line 309 edit action spec
-
 Users have many books
 Books have
   Title
@@ -12,6 +7,12 @@ Books have
   Times Read
   Owned?
   can have Series
+  Location (where you have it)
+  Comments?
+  Tags?
+    Do we want to be able to import goodreads url/summary/ratings?
+      Is this a button that reloads a new view with the fields added?
+      Flag book as goodreads_imported to determine which view loads subsequently?
 
 Authors have
   Books
@@ -27,7 +28,6 @@ Series have
   Books
   -Also a page
 
-Editing and deleting books seems like something we don't want becaues of multiple users?
 Do we want to create multiple instances of the same book to make more friendly to the individual user?
 
 Specs

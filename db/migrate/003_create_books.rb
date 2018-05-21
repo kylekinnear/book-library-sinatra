@@ -3,6 +3,7 @@ class CreateBooks < ActiveRecord::Migration[5.1]
     create_table :books do |t|
       t.string :title
       t.integer :author_id
+      t.string :author
       t.string :tags
       t.boolean :read?
       t.integer :times_read

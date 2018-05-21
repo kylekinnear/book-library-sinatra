@@ -32,7 +32,7 @@ Set up config
 ----------------------------------------------------------------
 Still to do
 Authors Controller
-Finish books controller
+Finish books controller (patch route)
 Tags controller
 Do we want to slug tags?
 Test and polish scrape MethodOverride

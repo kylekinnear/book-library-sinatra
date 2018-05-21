@@ -56,7 +56,14 @@ class BooksController < ApplicationController
   end
 
   patch '/my-library/:id' do
-    #yay editing
+    if logged_in?
+      if params[:title] != "" && params[:author] != ""
+        @book = Book.find_by_id(params[:id])
+        if @book && @book.user_id == current_user.id
+          #this is where we code the actual editing
+        end
+      end
+    end
   end
 
   get '/my-library/:id/edit' do

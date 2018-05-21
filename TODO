@@ -29,3 +29,16 @@ Tags-
 MVC
 Routes
 Set up config
+----------------------------------------------------------------
+Still to do
+Authors Controller
+Finish books controller
+Tags controller
+Do we want to slug tags?
+Test and polish scrape MethodOverride
+Show Author
+Add tags to create books
+Edit book (incl delete book)
+Show Book
+Show tags
+Testing

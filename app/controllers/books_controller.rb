@@ -31,6 +31,7 @@ class BooksController < ApplicationController
           @book.comments = params[:comments]
         end
         if params[:get_goodreads?] == 1
+          @book.goodreads_flag = 1
           #scrape
         end
         @book.save

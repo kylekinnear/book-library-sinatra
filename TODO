@@ -42,3 +42,7 @@ Edit book (incl delete book)
 Show Book
 Show tags
 Testing
+
+Can't reasonably avoid: When you submit a new book, it needs to take the author's slug and find_or_create, but this leaves no way of preserving the actual name you entered
+And whoever's book created the author's name is preserved.
+  Also seems pretty broken for collaborative works, but we can accept that

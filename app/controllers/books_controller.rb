@@ -45,7 +45,11 @@ class BooksController < ApplicationController
   get '/my-library/:id' do
     if logged_in?
       @book = Book.find_by_id(params[:id])
-      erb :'books/show_book'
+      if @book && @book.user_id == current_user
+        erb :'books/show_book'
+      else
+        redirect to '/my-library'
+      end
     else
       redirect to '/'
     end

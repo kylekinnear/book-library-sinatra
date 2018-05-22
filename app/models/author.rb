@@ -9,7 +9,8 @@ class Author < ActiveRecord::Base
     Author.all.find{|author| author.slug == slug}l
   end
 
-  def self.find_or_create_by_slug(slug)
+  def self.find_or_create_by_slug(slug, name)
     Author.all.find_or_create_by{|author| author.slug == slug}
+    @self.name = name
   end
 end

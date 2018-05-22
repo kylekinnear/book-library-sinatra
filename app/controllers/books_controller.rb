@@ -15,8 +15,9 @@ class BooksController < ApplicationController
   post '/my-library' do
     if logged_in?
       if params[:title] != "" && params[:author] != ""
-        @book = current_user.books.new(title: params[:title], author: params[:author]) #is this correct?
-#        @book.author_id = Author.find_by_slug(@book.author.downcase.gsub(".","").gsub(" ","-")).id #this builds a loose association between book, author_id while saving name?
+        @book = current_user.books.new(title: params[:title]) #is this correct?
+        @slug = params[:author].downcase.gsub(".","").gsub(" ","-")
+        @book.author = Author.find_or_create_by_slug(@slug, params[:author])        
         #@book.user_id = session[:user_id] - do we need this?
         if params[:read_it] == 1
           @book.read? = 1
@@ -68,7 +69,7 @@ class BooksController < ApplicationController
       end
     else
       redirect to '/'
-    end  
+    end
   end
 
   patch '/my-library/:id' do

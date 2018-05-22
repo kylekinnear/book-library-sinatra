@@ -1,47 +1,49 @@
 <h2><%= @book.title %></h2>
-<a href="/authors/<%@book.author.id%>"><h3><%= @book.author.name %></h3></a>
+<a href="/authors/<%=@book.author.id%>"><h3><%= @book.author.name %></h3></a>
 
+<!-- comment out goodreads
 <% if @book.goodreads_flag %>
 <b><a href="<%=@book.goodreads_url%>"></a>Goodreads link</b>
 <p><b><%= @book.goodreads_rating %></b></p>
 <%end%>
+-->
 
+<!-- neither bit of code works, commenting out and moving on
 <% if @book.read_flag == 1 %>
 <p>You've read this book <%=@book.times_read%> times.</p>
 <%end%>
+-->
 
+<!-- this bit does nothing
 <% if @book.owned_flag == 1 %>
 <p>You own this book.</p>
 <% end %>
+-->
 
 <% if @book.location.size > 0 %>
-<p>This book is located: <%=@book.location%></p>
+  <p>This book is located: <%=@book.location%></p>
 <%end%>
 
-<% if @book.comments.size > 0 %>
-<p><i>Your notes:</i></p>
-<p><%=@book.comments%></p>
+<% if @book.comments != nil %>
+  <p><i>Your notes:</i></p>
+  <p><%=@book.comments%></p>
 <%end%>
 
-<% if @book.tags.size > 0 %>
-<p>Tags:</p>
-<% @book.tags.each do |i| %>
-  <li><%= i.tag %></li>
-<% end %>
+<!-- tags go here if they work -->
 
 <% if !@book.goodreads_flag %>
-<form action="/my-libray/<%=@book.id%>" method="post">
-<input type="submit" name="get_goodreads_data" value="Get Goodreads Data">
-</form>
+  <form action="/my-libray/<%=@book.id%>" method="post">
+      <input type="submit" name="get_goodreads_data" value="Get Goodreads Data">
+  </form>
 <%end%>
-
+<br>
 <form action="/my-library/<%=@book.id%>/edit" method="post">
     <input type="submit" name="edit_book" value="Edit this book">
 </form>
-
+<br>
 <form action="/my-library/<%=@book.id%>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete this book">
 </form>
-
+<br>
 <i><a href="/my-library">Return to your library</a></i>

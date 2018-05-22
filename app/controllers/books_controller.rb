@@ -18,7 +18,6 @@ class BooksController < ApplicationController
         @book = current_user.books.new(title: params[:title]) #is this correct?
         @slug = params[:author].downcase.gsub(".","").gsub(" ","-")
         @book.author = Author.find_or_create_by_slug(@slug, params[:author])        
-        #@book.user_id = session[:user_id] - do we need this?
         if params[:read_it] == 1
           @book.read? = 1
           @book.times_read = params[:times_read]

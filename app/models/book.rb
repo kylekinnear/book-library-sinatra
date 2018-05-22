@@ -19,4 +19,12 @@ class Book < ActiveRecord::Base
     end
   end
 
+  def create_tags(tags)
+    @tag_array = tags.split(",").map!(&:strip)
+    @tag_array.each do |i|
+      Tags.all.find_or_create_by(tag: i)
+      #associate tag with book
+    end
+  end
+
 end

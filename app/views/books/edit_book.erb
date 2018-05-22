@@ -2,14 +2,14 @@
 <p><i>* marks a required field.</i></p>
 <form action="/my-library/<%=@book.id%>" method="post">
   <input type="hidden" id="hidden" name="_method" value="patch">
-  <h2>Title* <input type="text" name="title" value="<%=@book.title"></h2>
-  <p><b>Author* </b><input type="text" name="author" value="<%=@book.author%>"></p>
-  <%if @book.read_flag = 1 %>
+  <h2>Title* <input type="text" name="title" value="<%=@book.title%>"></h2>
+  <p><b>Author* </b><input type="text" name="author" value="<%=@book.author.name%>"></p>
+  <%if @book.read_flag == 1 %>
     <p>I've read this book <input type="checkbox" name="read_it" checked> <input type="number" name="times_read" value="<%=@book.times_read%>" style="width: 40px"> times</p>
   <%else%>
     <p>I've read this book <input type="checkbox" name="read_it" unchecked> <input type="number" name="times_read" value="0" style="width: 40px"> times</p>
   <%end%>
-  <%if @book.owned_flag = 1 %>
+  <%if @book.owned_flag == 1 %>
     <p>I own this book <input type="checkbox" name="own_it" checked></p>
   <%else%>
     <p>I own this book <input type="checkbox" name="own_it" unchecked></p>
@@ -18,7 +18,7 @@
   <p>Comments on this book</p>
   <textarea name="comments" rows="5" cols="60"><%=@book.comments%></textarea>
   <p>Tags <i>(comma separate)</i></p>
-  <input type="text" name="tags" value="<%=@book.tags.map {|i| i.tag}.join(", ")%>">
+  <p>placeholder</p>
   <%if @book.goodreads_flag %>
   <p>Would you like to get Goodreads info on this book? <input type="checkbox" name="get_goodreads?" checked></p>
   <%else%>

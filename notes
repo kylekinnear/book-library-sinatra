@@ -5,3 +5,8 @@ Show book tag code
 <% @book.tags.each do |i| %>
   <%=<li>i.tag</li>%>
 <% end %>
+
+
+
+Edit book tag code
+<input type="text" name="tags" value="<%=@book.tags.map {|i| i.tag}.join(", ")%>">

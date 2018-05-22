@@ -29,7 +29,9 @@
 </form>
 <%end%>
 
-<a href="/my-library/<%=@book.id%>/edit"><i>Edit this book</i></a>
+<form action="/my-library/<%=@book.id%>/edit" method="post">
+    <input type="submit" name="edit_book" value="Edit this book">
+</form>
 
 <form action="/my-library/<%=@book.id%>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">

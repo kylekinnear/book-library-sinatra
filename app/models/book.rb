@@ -20,10 +20,10 @@ class Book < ActiveRecord::Base
   end
 
   def create_tags(tags)
-    @tag_array = tags.split(",").map!(&:strip)
-    @tag_array.each do |i|
-      self.tags << Tags.all.find_or_create_by(tag: i)
-    end
+  #  @tag_array = tags.split(",").map!(&:strip)
+  #  @tag_array.each do |i|
+  #    self.tags << Tags.all.find_or_create_by(tag: i)
+  #  end
   end
 
 end

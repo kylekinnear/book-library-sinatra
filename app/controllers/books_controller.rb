@@ -80,6 +80,19 @@ class BooksController < ApplicationController
     end
   end
 
+  post '/my-library/:id/edit' do
+    if logged_in?
+      @book = Book.find_by_params(params[:id]) #is this going to work or is it going to try and look at the posted data?
+      if @book && @book.user_id == current_user.id
+        erb :'books/edit_book'
+      else
+        redirect to '/my-library'
+      end
+    else
+      redirect to '/'
+    end
+  end
+
   delete '/my-library/:id/delete' do
     if logged_in?
       @book = Book.find_by_id(params[:id])

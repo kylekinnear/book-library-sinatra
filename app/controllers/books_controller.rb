@@ -17,7 +17,7 @@ class BooksController < ApplicationController
       if params[:title] != "" && params[:author] != ""
         @book = current_user.books.new(title: params[:title]) #is this correct?
         @slug = params[:author].downcase.gsub(".","").gsub(" ","-")
-        @book.author = Author.find_or_create_by_slug(@slug, params[:author])        
+        @book.author = Author.find_or_create_by_slug(@slug, params[:author])
         if params[:read_it] == 1
           @book.read? = 1
           @book.times_read = params[:times_read]
@@ -34,6 +34,9 @@ class BooksController < ApplicationController
         if params[:get_goodreads?] == 1
           @book.goodreads_flag = 1
           #scrape
+        end
+        if params[:tags] != ""
+          @book.create_tags(params[:tags])
         end
         @book.save
       else

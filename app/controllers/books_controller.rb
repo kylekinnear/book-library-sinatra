@@ -2,7 +2,7 @@ require './config/environment'
 
 class BooksController < ApplicationController
 
-  get '/my-library/new'
+  get '/my-library/new' do
     if logged_in?
       erb :'books/create_book'
     else
@@ -17,11 +17,11 @@ class BooksController < ApplicationController
         @slug = params[:author].downcase.gsub(".","").gsub(" ","-")
         @book.author = Author.find_or_create_by_slug(@slug, params[:author])
         if params[:read_it] == 1
-          @book.read? = 1
+          @book.read_flag = 1
           @book.times_read = params[:times_read]
         end
         if params[:own_it] == 1
-          @book.owned? = 1
+          @book.owned_flag = 1
         end
         if @book.location != ""
           @book.location = params[:location]
@@ -120,6 +120,5 @@ class BooksController < ApplicationController
       redirect to '/'
     end
   end
-
 
 end

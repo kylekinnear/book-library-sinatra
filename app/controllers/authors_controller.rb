@@ -6,7 +6,7 @@ class AuthorsController < ApplicationController
     if logged_in?
       @author = Author.find_by_id(params[:id])
       if @author
-        erb :'author/show_author'
+        erb :'authors/show_author'
       else
         redirect to '/my-library'
       end

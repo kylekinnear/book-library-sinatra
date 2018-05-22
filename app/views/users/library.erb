@@ -6,7 +6,7 @@
 <% @books.each do |book| %>
   <div style="border:2px solid black">
     <a href="/my-library/<%=book.id%>"><h4><%= book.title %></h4></a>
-    <p><%= book.author.name%></p>
+    <a href="/authors/<%=book.author.id%>"><p><%= book.author.name%></p></a>
   </div>
 <%end%>
 

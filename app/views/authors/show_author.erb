@@ -1,4 +1,4 @@
-<h2><%=@author.name%></h2>
+<h2>Your books by <%=@author.name%></h2>
 
 <% current_user.books.each do |book| %>
   <%  if book.author.id = @author.id %>

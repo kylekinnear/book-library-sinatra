@@ -23,6 +23,12 @@
 <p><%=@book.comments%></p>
 <%end%>
 
+<% if @book.tags.size > 0 %>
+<p>Tags:</p>
+<% @book.tags.each do |i| %>
+  <li><%= i.tag %></li>
+<% end %>
+
 <% if !@book.goodreads_flag %>
 <form action="/my-libray/<%=@book.id%>" method="post">
 <input type="submit" name="get_goodreads_data" value="Get Goodreads Data">

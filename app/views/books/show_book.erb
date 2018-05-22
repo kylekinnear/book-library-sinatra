@@ -6,11 +6,11 @@
 <p><b><%= @book.goodreads_rating %></b></p>
 <%end%>
 
-<% if @book.read? %>
+<% if @book.read_flag == 1 %>
 <p>You've read this book <%=@book.times_read%> times.</p>
 <%end%>
 
-<% if @book.owned? %>
+<% if @book.owned_flag == 1 %>
 <p>You own this book.</p>
 <% end %>
 
@@ -45,5 +45,3 @@
 </form>
 
 <i><a href="/my-library">Return to your library</a></i>
-
-Still need to add tags

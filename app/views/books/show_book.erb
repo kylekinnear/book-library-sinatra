@@ -1,5 +1,5 @@
 <h2><%= @book.title %></h2>
-<h3><%= @book.author.name %></h3>
+<a href="/authors/<%@book.author.id%>"><h3><%= @book.author.name %></h3></a>
 
 <% if @book.goodreads_flag %>
 <b><a href="<%=@book.goodreads_url%>"></a>Goodreads link</b>

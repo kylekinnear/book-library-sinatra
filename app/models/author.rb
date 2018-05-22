@@ -14,7 +14,7 @@ class Author < ActiveRecord::Base
 #    @self.name = name
 #  end
 
-  def self.match_author(slug, name)
-    Author.where(self.slugify => slug).first_or_create(name: name)
-  end
+#  def self.match_author(slug, name)
+#    Author.where(:name.slugify => slug).first_or_create(name: name)
+#  end
 end

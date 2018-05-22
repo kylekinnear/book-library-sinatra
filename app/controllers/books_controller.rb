@@ -56,6 +56,21 @@ class BooksController < ApplicationController
     end
   end
 
+  post '/my-library/:id' do
+    if logged_in?
+      @book = Book.find_by_id(params[:id])
+      if @book && @book.user_id == current_user.id
+        @book.goodreads_flag = 1
+        #scrape
+        erb :'books/show_book'
+      else
+        redirect to '/my-library'
+      end
+    else
+      redirect to '/'
+    end  
+  end
+
   patch '/my-library/:id' do
     if logged_in?
       if params[:title] != "" && params[:author] != ""

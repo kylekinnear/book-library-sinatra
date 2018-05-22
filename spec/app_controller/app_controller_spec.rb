@@ -1,4 +1,4 @@
-require 'spec_helper'
+lrequire 'spec_helper'
 
 describe ApplicationController do
   describe "Homepage" do

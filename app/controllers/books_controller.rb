@@ -41,7 +41,7 @@ class BooksController < ApplicationController
       else
         redirect to '/my-library/new'
       end
-      redirect to '/'
+      redirect to '/my-library'
     end
   end
 

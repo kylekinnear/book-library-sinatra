@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 4) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
+    t.string "slug"
   end
 
   create_table "books", force: :cascade do |t|

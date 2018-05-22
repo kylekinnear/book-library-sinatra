@@ -1,16 +1,40 @@
-This page will always have the book's title
-We should be able to find the author from having the author id assigned during creation
-User should be able to see the tags they've given the book and add/delete
-User should be able to see if they've read it or not
-User should see times_read
+<h2><%= @book.title %></h2>
+<h3><%= @book.author.name %></h3>
 
-User should see if they own it
-User should be able to set a location
-  User may set a location for an unowned book (eg library), but if no location, field will not be displayed outside of editing
+<% if @book.goodreads_flag %>
+<b><a href="<%=@book.goodreads_url%>"></a>Goodreads link</b>
+<p><b><%= @book.goodreads_rating %></b></p>
+<%end%>
 
-User should be able to comment on the book
-User should have the option to populate the book with goodreads data, and if they choose to do so, data should be displayed
-  A goodreads flag is set when they hit the populate button, data is scraped, page is reloaded
-    Data includes a url, rates, and rating
+<% if @book.read? %>
+<p>You've read this book <%=@book.times_read%> times.</p>
+<%end%>
 
-We would prefer to have unpopulated fields on the button under a "you can add this information" heading to avoid whitespace clutter
+<% if @book.owned? %>
+<p>You own this book.</p>
+<% end %>
+
+<% if @book.location.size > 0 %>
+<p>This book is located: <%=@book.location%></p>
+<%end%>
+
+<% if @book.comments.size > 0 %>
+<p><i>Your notes:</i></p>
+<p><%=@book.comments%></p>
+<%end%>
+
+<% if !@book.goodreads_flag %>
+<form action="/my-libray/<%=@book.id%>" method="post">
+<input type="submit" name="get_goodreads_data" value="Get Goodreads Data">
+</form>
+<%end%>
+
+<a href="/my-library/<%=@book.id%>/edit"><i>Edit this book</i></a>
+
+<form action="/my-library/<%=@book.id%>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete this book">
+</form>
+
+
+Still need to add tags

@@ -1,7 +1,7 @@
 <h2><%=@author.name%></h2>
 
-current_user.books.each do |book|
-  if book.author.id = @author.id
-    <li><a href="/my-library/<%=book.id%>"><%=book.title%></a></li>
-  end
-end
+<% current_user.books.each do |book| %>
+  <%  if book.author.id = @author.id %>
+    <%=    <li><a href="/my-library/<%=book.id%>"><%=book.title%></a></li> %>
+    <%  end %>
+<% end %>

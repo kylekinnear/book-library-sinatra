@@ -37,9 +37,12 @@
   </form>
 <%end%>
 <br>
+<!-- comment out edit button, replace with link
 <form action="/my-library/<%=@book.id%>/edit" method="post">
     <input type="submit" name="edit_book" value="Edit this book">
 </form>
+-->
+<a href="/my-library/<%=@book.id%>/edit">Edit this book</a>
 <br>
 <form action="/my-library/<%=@book.id%>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">

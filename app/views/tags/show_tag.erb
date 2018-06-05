@@ -1,9 +1,0 @@
-<h2>Books you've tagged <i><%=@tag.tag%></i></h2>
-
-<% current_user.books.each do |book| %>
-  <%  if book.tags.include?(@tag) %>
-    <%=    <li><a href="/my-library/<%=book.id%>"><%=book.title%></a></li> %>
-    <%  end %>
-<% end %>
-
-<i><a href="/my-library">Return to your library</a></i>

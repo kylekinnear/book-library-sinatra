@@ -9,5 +9,4 @@ use Rack::MethodOverride
 use UsersController
 use AuthorsController
 use BooksController
-use TagsController
 run ApplicationController

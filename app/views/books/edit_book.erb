@@ -17,8 +17,6 @@
   <p>This book is stored <input type="text" name="location" value="<%=@book.location%>"></p>
   <p>Comments on this book</p>
   <textarea name="comments" rows="5" cols="60"><%=@book.comments%></textarea>
-  <p>Tags <i>(comma separate)</i></p>
-  <p>placeholder</p>
   <%if @book.goodreads_flag %>
   <p>Would you like to get Goodreads info on this book? <input type="checkbox" name="get_goodreads?" checked></p>
   <%else%>

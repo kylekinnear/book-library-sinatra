@@ -6,6 +6,7 @@ class BooksController < ApplicationController
     if logged_in?
       erb :'books/create_book'
     else
+      flash[:message] = "Please log in."
       redirect to '/'
     end
   end
@@ -26,8 +27,10 @@ class BooksController < ApplicationController
         flash[:message] = "Added new book!"
         redirect to '/my-library'
       else
+        flash[:message] = "Couldn't create the book. Make sure you have a title and an author."
         redirect to '/my-library/new'
       end
+      flash[:message] = "Please log in."
       redirect to '/my-library'
     end
   end

@@ -41,6 +41,7 @@ class BooksController < ApplicationController
       if @book && @book.user == current_user
         erb :'books/show_book'
       else
+        flash[:message] = "You don't have access to that book."
         redirect to '/my-library'
       end
     else

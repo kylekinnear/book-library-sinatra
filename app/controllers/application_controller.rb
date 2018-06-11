@@ -23,8 +23,4 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  get '*path' do   #redirect unknown routes to library, which redirects to index if not logged in
-    redirect to '/my-library'
-  end
-
 end

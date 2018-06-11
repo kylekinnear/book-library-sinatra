@@ -1,13 +1,6 @@
 <h2><%= @book.title %></h2>
 <a href="/authors/<%=@book.author.id%>"><h3><%= @book.author.name %></h3></a>
 
-<!-- comment out goodreads
-<% if @book.goodreads_flag %>
-<b><a href="<%=@book.goodreads_url%>"></a>Goodreads link</b>
-<p><b><%= @book.goodreads_rating %></b></p>
-<%end%>
--->
-
 <!-- neither bit of code works, commenting out and moving on
 <% if @book.read_flag == 1 %>
 <p>You've read this book <%=@book.times_read%> times.</p>
@@ -29,17 +22,6 @@
   <p><%=@book.comments%></p>
 <%end%>
 
-<% if !@book.goodreads_flag %>
-  <form action="/my-libray/<%=@book.id%>" method="post">
-      <input type="submit" name="get_goodreads_data" value="Get Goodreads Data">
-  </form>
-<%end%>
-<br>
-<!-- comment out edit button, replace with link
-<form action="/my-library/<%=@book.id%>/edit" method="post">
-    <input type="submit" name="edit_book" value="Edit this book">
-</form>
--->
 <a href="/my-library/<%=@book.id%>/edit">Edit this book</a>
 <br>
 <br>

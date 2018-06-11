@@ -71,7 +71,7 @@ class BooksController < ApplicationController
         if @book && @book.user_id == current_user.id
           @book.update(title: params[:title])
           @slug = params[:author].downcase.gsub(".","").gsub(" ","-")
-          @book.update(author: Author.match_author(@slug, params[:author])
+          @book.update(author: Author.match_author(@slug, params[:author]))
           if params[:read_it] == 1
             @book.update(read_flag: 1)
             @book.update(times_read: params[:times_read])

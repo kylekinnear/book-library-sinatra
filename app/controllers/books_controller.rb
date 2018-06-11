@@ -29,9 +29,6 @@ class BooksController < ApplicationController
         if params[:comments] != ""
           @book.comments = params[:comments]
         end
-        if params[:tags] != ""
-          @book.create_tags(params[:tags])
-        end
         @book.save
         redirect to '/my-library'
       else

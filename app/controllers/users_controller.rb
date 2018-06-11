@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   post '/signup' do
     if params[:username] == "" || params[:email] == "" || params[:password] == "" || params[:password] != params[:password_check] || User.all.find{|email| email == params[:email]}
+      flash[:message] = "Make sure you've entered a username, email, and matching passwords. If you've done these things, that email is already registered."
       redirect to '/signup'
     else
       @user = User.new(username: params[:username], email: params[:email], password: params[:password])

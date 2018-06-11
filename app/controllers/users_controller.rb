@@ -45,7 +45,8 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect to '/my-library'
     else
-      redirect to '/signup'
+      flash[:message] = "Invalid login information."
+      redirect to '/'
     end
   end
 

@@ -29,10 +29,6 @@ class BooksController < ApplicationController
         if params[:comments] != ""
           @book.comments = params[:comments]
         end
-        if params[:get_goodreads?] == 1
-          @book.goodreads_flag = 1
-          #scrape
-        end
         if params[:tags] != ""
           @book.create_tags(params[:tags])
         end

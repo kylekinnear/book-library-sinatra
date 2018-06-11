@@ -1,4 +1,9 @@
 <h2>Welcome, <%= current_user.username %></h2>
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <form action="/my-library/new" method="get">
   <input type="submit" value="Add a book">
 </form>

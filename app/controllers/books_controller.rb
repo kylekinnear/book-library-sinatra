@@ -23,6 +23,7 @@ class BooksController < ApplicationController
           @book.comments = params[:comments]
         end
         @book.save
+        flash[:message] = "Added new book!"
         redirect to '/my-library'
       else
         redirect to '/my-library/new'

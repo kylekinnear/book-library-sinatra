@@ -44,6 +44,7 @@ class BooksController < ApplicationController
         redirect to '/my-library'
       end
     else
+      flash[:message] = "Please log in."
       redirect to '/'
     end
   end
@@ -57,6 +58,7 @@ class BooksController < ApplicationController
         redirect to '/my-library'
       end
     else
+      flash[:message] = "Please log in."
       redirect to '/'
     end
   end
@@ -75,14 +77,18 @@ class BooksController < ApplicationController
           if params[:comments] != ""
             @book.update(comments: params[:comments])
           end
+          flash[:message] = "Updated book."
           redirect to "/my-library/#{@book.id}"
         else
+          flash[:message] = "You don't have access to that book."
           redirect to '/my-library/'
         end
       else
+        flash[:message] = "Please enter a title and an author."
         redirect to "/my-library/#{@book.id}/edit"
       end
     else
+      flash[:message] = "Please log in."
       redirect to '/'
     end
   end
@@ -93,9 +99,11 @@ class BooksController < ApplicationController
       if @book && @book.user == current_user
         erb :'books/edit_book'
       else
+        flash[:message] = "You don't have access to that book."
         redirect to '/my-library'
       end
     else
+      flash[:message] = "Please log in."
       redirect to '/'
     end
   end
@@ -106,8 +114,10 @@ class BooksController < ApplicationController
       if @book && @book.user == current_user
         @book.delete
       end
+      flash[:message] = "Book deleted."
       redirect to '/my-library'
     else
+      flash[:message] = "You don't have access to that book."
       redirect to '/'
     end
   end

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    <% if flash.has?(:message) %>
+      <h3><%= flash[:message] %></h3>
+    <% end %>
     <!--
      Frank Sinatra
 

@@ -1,18 +1,6 @@
 <h2><%= @book.title %></h2>
 <a href="/authors/<%=@book.author.id%>"><h3><%= @book.author.name %></h3></a>
 
-<!-- neither bit of code works, commenting out and moving on
-<% if @book.read_flag == 1 %>
-<p>You've read this book <%=@book.times_read%> times.</p>
-<%end%>
--->
-
-<!-- this bit does nothing
-<% if @book.owned_flag == 1 %>
-<p>You own this book.</p>
-<% end %>
--->
-
 <% if @book.location.size > 0 %>
   <p>This book is located: <%=@book.location%></p>
 <%end%>

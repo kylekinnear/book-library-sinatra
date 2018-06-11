@@ -16,13 +16,6 @@ class BooksController < ApplicationController
         @book = current_user.books.new(title: params[:title]) #is this correct?
         @slug = params[:author].downcase.gsub(".","").gsub(" ","-")
         @book.author = Author.match_author(@slug, params[:author])
-        if params[:read_it] == 1
-          @book.read_flag = 1
-          @book.times_read = params[:times_read]
-        end
-        if params[:own_it] == 1
-          @book.owned_flag = 1
-        end
         if @book.location != ""
           @book.location = params[:location]
         end
@@ -72,13 +65,6 @@ class BooksController < ApplicationController
           @book.update(title: params[:title])
           @slug = params[:author].downcase.gsub(".","").gsub(" ","-")
           @book.update(author: Author.match_author(@slug, params[:author]))
-          if params[:read_it] == 1
-            @book.update(read_flag: 1)
-            @book.update(times_read: params[:times_read])
-          end
-          if params[:own_it] == 1
-            @book.update(owned_flag: 1)
-          end
           if params[:location] != ""
             @book.update(location: params[:location])
           end

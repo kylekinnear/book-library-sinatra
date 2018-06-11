@@ -4,16 +4,6 @@
   <input type="hidden" id="hidden" name="_method" value="patch">
   <h2>Title* <input type="text" name="title" value="<%=@book.title%>"></h2>
   <p><b>Author* </b><input type="text" name="author" value="<%=@book.author.name%>"></p>
-  <%if @book.read_flag == 1 %>
-    <p>I've read this book <input type="checkbox" name="read_it" checked> <input type="number" name="times_read" value="<%=@book.times_read%>" style="width: 40px"> times</p>
-  <%else%>
-    <p>I've read this book <input type="checkbox" name="read_it" unchecked> <input type="number" name="times_read" value="0" style="width: 40px"> times</p>
-  <%end%>
-  <%if @book.owned_flag == 1 %>
-    <p>I own this book <input type="checkbox" name="own_it" checked></p>
-  <%else%>
-    <p>I own this book <input type="checkbox" name="own_it" unchecked></p>
-  <%end%>
   <p>This book is stored <input type="text" name="location" value="<%=@book.location%>"></p>
   <p>Comments on this book</p>
   <textarea name="comments" rows="5" cols="60"><%=@book.comments%></textarea>

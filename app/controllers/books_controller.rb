@@ -69,7 +69,22 @@ class BooksController < ApplicationController
       if params[:title] != "" && params[:author] != ""
         @book = Book.find_by_id(params[:id])
         if @book && @book.user_id == current_user.id
-          #this is where we code the actual editing
+          @book.update(title: params[:title])
+          @slug = params[:author].downcase.gsub(".","").gsub(" ","-")
+          @book.author = Author.match_author(@slug, params[:author])
+          if params[:read_it] == 1
+            @book.update(read_flag: 1)
+            @book.update(times_read: params[:times_read])
+          end
+          if params[:own_it] == 1
+            @book.update(owned_flag: 1)
+          end
+          if params[:location] != ""
+            @book.update(location: params[:location])
+          end
+          if params[:comments] != ""
+            @book.update(comments: params[:comments])
+          end
         end
       end
     end
